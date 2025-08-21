@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Elegant Restaurant Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Elegant Restaurant Color Palette */
+    --background: 30 8% 97%;
+    --foreground: 30 8% 15%;
+
+    --card: 30 8% 98%;
+    --card-foreground: 30 8% 15%;
+
+    --popover: 30 8% 98%;
+    --popover-foreground: 30 8% 15%;
+
+    /* Rich Gold Primary */
+    --primary: 38 85% 45%;
+    --primary-foreground: 30 8% 97%;
+    --primary-glow: 38 85% 55%;
+
+    /* Warm Secondary */
+    --secondary: 30 15% 92%;
+    --secondary-foreground: 30 8% 20%;
+
+    /* Elegant Muted */
+    --muted: 30 15% 94%;
+    --muted-foreground: 30 8% 45%;
+
+    /* Sophisticated Accent */
+    --accent: 25 20% 88%;
+    --accent-foreground: 30 8% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 30 8% 97%;
+
+    --border: 30 15% 90%;
+    --input: 30 15% 90%;
+    --ring: 38 85% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom Restaurant Design Tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(30 8% 15% / 0.8), hsl(38 85% 25% / 0.6));
+    --gold-gradient: linear-gradient(135deg, hsl(38 85% 45%), hsl(45 90% 55%));
+    --elegant-shadow: 0 20px 40px -10px hsl(30 8% 15% / 0.1);
+    --glass-effect: backdrop-blur(8px) hsl(30 8% 97% / 0.9);
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+  
+  .gold-gradient {
+    background: var(--gold-gradient);
+  }
+  
+  .elegant-shadow {
+    box-shadow: var(--elegant-shadow);
+  }
+  
+  .glass-effect {
+    background: var(--glass-effect);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .section-padding {
+    @apply px-4 md:px-8 lg:px-16;
+  }
+}

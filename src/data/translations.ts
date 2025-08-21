@@ -1,0 +1,191 @@
+export const translations = {
+  es: {
+    nav: {
+      menu: "Menú",
+      drinks: "Bebidas",
+      reservations: "Reservas",
+      contact: "Contacto"
+    },
+    hero: {
+      title: "La Terraza Italiana",
+      subtitle: "Sabores auténticos de Italia en un ambiente exclusivo y elegante",
+      cta1: "Ver Menú",
+      cta2: "Hacer Reserva"
+    },
+    menu: {
+      title: "Nuestro Menú",
+      subtitle: "Descarga nuestro menú completo en PDF que incluye todos nuestros deliciosos platos tradicionales italianos",
+      downloadText: "Descargar Menú PDF",
+      comingSoon: "Próximamente disponible para descarga"
+    },
+
+    reservations: {
+      title: "Reservas",
+      subtitle: "Reserve su mesa para vivir una experiencia gastronómica inolvidable",
+      form: {
+        title: "Hacer una Reserva",
+        name: "Nombre completo",
+        namePlaceholder: "Su nombre",
+        email: "Correo electrónico",
+        emailPlaceholder: "su@correo.com",
+        phone: "Teléfono",
+        phonePlaceholder: "+34 123 456 789",
+        guests: "Número de comensales",
+        date: "Fecha",
+        time: "Hora",
+        message: "Mensaje especial (opcional)",
+        messagePlaceholder: "Alergias, celebraciones especiales, etc.",
+        submit: "Confirmar Reserva"
+      },
+      success: {
+        title: "¡Reserva confirmada!",
+        message: "Nos pondremos en contacto con usted para confirmar los detalles."
+      }
+    },
+    contact: {
+      title: "Contacto",
+      subtitle: "Encuéntranos y mantente conectado con nosotros",
+      address: {
+        title: "Dirección",
+        content: "Avenida las Americas 8-42\nCiudad de Guatemala, Guatemala"
+      },
+      phone: {
+        title: "Teléfono",
+        content: "+502 2253 7922"
+      },
+      email: {
+        title: "Email",
+        content: "info@bellavista.it"
+      },
+      hours: {
+        title: "Horarios",
+        content: "Lun-Sáb: 12:00 - 22:00\nDomingo: 12:00 - 18:00"
+      },
+      social: {
+        title: "Síguenos"
+      },
+      map: "Ubicación en el mapa"
+    },
+    testimonials: {
+      title: "Lo que dicen nuestros clientes",
+      subtitle: "Experiencias auténticas de quienes nos visitan",
+      reviews: [
+        {
+          name: "María González",
+          rating: 5,
+          comment: "Una experiencia gastronómica excepcional. La pasta fresca y el servicio impecable nos transportaron directamente a Italia.",
+          date: "Hace 2 semanas"
+        },
+        {
+          name: "Carlos Martínez",
+          rating: 5,
+          comment: "El ambiente es perfecto para una cena romántica. Los platos son auténticos y el staff muy profesional. Volveremos sin duda.",
+          date: "Hace 1 mes"
+        },
+        {
+          name: "Ana Rodríguez",
+          rating: 5,
+          comment: "La terraza tiene unas vistas increíbles y la comida está deliciosa. El risotto ai porcini es simplemente perfecto.",
+          date: "Hace 3 semanas"
+        }
+      ]
+    }
+  },
+  it: {
+    nav: {
+      menu: "Menu",
+      drinks: "Bevande",
+      reservations: "Prenotazioni",
+      contact: "Contatti"
+    },
+    hero: {
+      title: "La Terrazza Italiana",
+      subtitle: "Sapori autentici d'Italia in un ambiente esclusivo ed elegante",
+      cta1: "Vedi Menu",
+      cta2: "Prenota Tavolo"
+    },
+    menu: {
+      title: "Il Nostro Menu",
+      subtitle: "Scarica il nostro menu completo in PDF per vedere tutti i nostri deliziosi piatti",
+      downloadText: "Scarica Menu PDF",
+      comingSoon: "Presto disponibile per il download"
+    },
+    drinks: {
+      title: "Carta delle Bevande",
+      subtitle: "Scarica la nostra carta completa di vini, caffè e cocktail artigianali",
+      downloadText: "Scarica Carta PDF",
+      comingSoon: "Presto disponibile per il download"
+    },
+    reservations: {
+      title: "Prenotazioni",
+      subtitle: "Prenota il tuo tavolo per vivere un'esperienza gastronomica indimenticabile",
+      form: {
+        title: "Fai una Prenotazione",
+        name: "Nome completo",
+        namePlaceholder: "Il tuo nome",
+        email: "Email",
+        emailPlaceholder: "tua@email.com",
+        phone: "Telefono",
+        phonePlaceholder: "+39 123 456 789",
+        guests: "Numero di ospiti",
+        date: "Data",
+        time: "Ora",
+        message: "Messaggio speciale (opzionale)",
+        messagePlaceholder: "Allergie, celebrazioni speciali, ecc.",
+        submit: "Conferma Prenotazione"
+      },
+      success: {
+        title: "Prenotazione confermata!",
+        message: "Ti contatteremo per confermare i dettagli."
+      }
+    },
+    contact: {
+      title: "Contatti",
+      subtitle: "Trovaci e resta connesso con noi",
+      address: {
+        title: "Indirizzo",
+        content: "Via della Bellezza, 123\n00100 Roma, Italia"
+      },
+      phone: {
+        title: "Telefono",
+        content: "+39 06 123 4567"
+      },
+      email: {
+        title: "Email",
+        content: "info@bellavista.it"
+      },
+      hours: {
+        title: "Orari",
+        content: "Mar-Dom: 12:00 - 23:00\nLunedì: Chiuso"
+      },
+      social: {
+        title: "Seguici"
+      },
+      map: "Posizione sulla mappa"
+    },
+    testimonials: {
+      title: "Cosa dicono i nostri clienti",
+      subtitle: "Esperienze autentiche di chi ci visita",
+      reviews: [
+        {
+          name: "Giulia Romano",
+          rating: 5,
+          comment: "Un'esperienza gastronomica eccezionale. La pasta fresca e il servizio impeccabile ci hanno trasportato direttamente in Italia.",
+          date: "2 settimane fa"
+        },
+        {
+          name: "Marco Bianchi",
+          rating: 5,
+          comment: "L'ambiente è perfetto per una cena romantica. I piatti sono autentici e lo staff molto professionale. Torneremo sicuramente.",
+          date: "1 mese fa"
+        },
+        {
+          name: "Sofia Rossi",
+          rating: 5,
+          comment: "La terrazza ha una vista incredibile e il cibo è delizioso. Il risotto ai porcini è semplicemente perfetto.",
+          date: "3 settimane fa"
+        }
+      ]
+    }
+  }
+};
