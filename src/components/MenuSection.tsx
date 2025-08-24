@@ -19,37 +19,30 @@ export const MenuSection = ({ translations }: MenuSectionProps) => {
   return (
     <section id="menu" className="py-20 bg-muted/50">
       <div className="max-w-4xl mx-auto section-padding text-center">
-        <div className="mb-16">
+        <div className="mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground font-playfair">
             {translations.menu.title}
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Descarga nuestro menú que incluye todos nuestros deliciosos platos tradicionales italianos: 
-            entradas, pastas, platos fuertes, ensaladas y pizzas
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Descubre nuestra auténtica cocina italiana con platos tradicionales preparados con ingredientes frescos
           </p>
         </div>
 
-        <Card className="elegant-shadow hover:shadow-xl transition-smooth border-0 max-w-3xl mx-auto">
-          <CardContent className="p-12">
+        <Card className="elegant-shadow hover:shadow-xl transition-smooth border-0 max-w-2xl mx-auto">
+          <CardContent className="p-10">
             <div className="text-center">
-              <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <FileText className="w-10 h-10 text-primary" />
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <FileText className="w-8 h-8 text-primary" />
               </div>
               
-              <h3 className="text-3xl font-bold mb-4 text-primary font-playfair">
-                Menú Completo
+              <h3 className="text-2xl font-bold mb-6 text-primary font-playfair">
+                Carta Completa
               </h3>
               
-              <div className="mb-8">
-                <h4 className="text-xl font-semibold mb-4 text-foreground">Nuestra Carta Incluye:</h4>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm text-muted-foreground">
-                  <div>🍽️ Entradas</div>
-                  <div>🍝 Pastas</div>
-                  <div>🥩 Platos Fuertes</div>
-                  <div>🥗 Ensaladas</div>
-                  <div>🍕 Pizzas</div>
-                </div>
-              </div>
+              <p className="text-muted-foreground mb-8 leading-relaxed">
+                Nuestro menú incluye una selección cuidadosamente curada de entradas, pastas, 
+                platos principales, ensaladas y pizzas auténticas
+              </p>
 
               <Button 
                 size="lg" 
@@ -57,7 +50,7 @@ export const MenuSection = ({ translations }: MenuSectionProps) => {
                 onClick={handleDownload}
               >
                 <Download className="w-5 h-5" />
-                Descargar Menú PDF
+                Descargar Menú
               </Button>
             </div>
           </CardContent>

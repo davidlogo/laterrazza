@@ -14,13 +14,13 @@ export const Navigation = ({ currentLanguage, onLanguageChange, translations }: 
 
   const navItems = [
     { key: 'menu', href: '#menu' },
-    { key: 'drinks', href: '#drinks' },
     { key: 'reservations', href: '#reservations' },
-    { key: 'contact', href: '#contact' }
+    { key: 'contact', href: '#contact' },
+    { key: 'location', href: '#contact' }
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 glass-effect border-b border-white/20">
+    <nav className="absolute top-0 w-full z-50 glass-effect border-b border-white/20">
       <div className="max-w-7xl mx-auto section-padding">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}

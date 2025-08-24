@@ -28,7 +28,7 @@ export const LanguageSelector = ({ currentLanguage, onLanguageChange }: Language
         variant="ghost"
         size="sm"
         onClick={() => setIsOpen(!isOpen)}
-        className="gap-2 text-primary-foreground hover:bg-white/10"
+        className="gap-2 text-white hover:bg-white/10"
       >
         <Globe size={16} />
         <span className="hidden sm:inline">{current.flag} {current.name}</span>
@@ -44,7 +44,7 @@ export const LanguageSelector = ({ currentLanguage, onLanguageChange }: Language
                 onLanguageChange(lang.code);
                 setIsOpen(false);
               }}
-              className="w-full px-4 py-2 text-left hover:bg-white/10 first:rounded-t-lg last:rounded-b-lg transition-colors flex items-center gap-2"
+              className="w-full px-4 py-2 text-left hover:bg-white/10 first:rounded-t-lg last:rounded-b-lg transition-colors flex items-center gap-2 text-white"
             >
               <span>{lang.flag}</span>
               <span>{lang.name}</span>

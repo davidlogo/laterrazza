@@ -3,8 +3,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, Clock, Users, Phone, Mail } from 'lucide-react';
+import { Calendar, Clock, Users, Phone, Mail, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import emailjs from '@emailjs/browser';
+import { emailjsConfig } from '@/config/emailjs';
 
 interface ReservationSectionProps {
   translations: any;
@@ -12,6 +14,7 @@ interface ReservationSectionProps {
 
 export const ReservationSection = ({ translations }: ReservationSectionProps) => {
   const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,21 +25,57 @@ export const ReservationSection = ({ translations }: ReservationSectionProps) =>
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: translations.reservations.success.title,
-      description: translations.reservations.success.message,
-    });
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      date: '',
-      time: '',
-      guests: '',
-      message: ''
-    });
+    setIsLoading(true);
+    
+    try {
+      // Configuración de EmailJS
+      const templateParams = {
+        to_email: 'davidlogo9525@gmail.com',
+        from_name: formData.name,
+        from_email: formData.email,
+        from_phone: formData.phone,
+        guests: formData.guests,
+        date: formData.date,
+        time: formData.time,
+        message: formData.message,
+        reply_to: formData.email
+      };
+
+      // Enviar email usando EmailJS
+      await emailjs.send(
+        emailjsConfig.serviceId,
+        emailjsConfig.templateId,
+        templateParams,
+        emailjsConfig.publicKey
+      );
+
+      toast({
+        title: translations.reservations.success.title,
+        description: translations.reservations.success.message,
+      });
+      
+      // Limpiar formulario
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        date: '',
+        time: '',
+        guests: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Error al enviar",
+        description: "Hubo un problema al enviar la reserva. Por favor, inténtalo de nuevo.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -170,8 +209,15 @@ export const ReservationSection = ({ translations }: ReservationSectionProps) =>
                 />
               </div>
 
-              <Button type="submit" size="lg" className="w-full">
-                {translations.reservations.form.submit}
+              <Button type="submit" size="lg" className="w-full" disabled={isLoading}>
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Enviando...
+                  </>
+                ) : (
+                  translations.reservations.form.submit
+                )}
               </Button>
             </form>
           </CardContent>

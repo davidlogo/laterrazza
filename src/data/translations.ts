@@ -2,12 +2,12 @@ export const translations = {
   es: {
     nav: {
       menu: "Menú",
-      drinks: "Bebidas",
       reservations: "Reservas",
-      contact: "Contacto"
+      contact: "Contacto",
+      location: "Ubicación"
     },
     hero: {
-      title: "La Terraza Italiana",
+      title: "La Terrazza Italiana",
       subtitle: "Sabores auténticos de Italia en un ambiente exclusivo y elegante",
       cta1: "Ver Menú",
       cta2: "Hacer Reserva"
@@ -55,7 +55,7 @@ export const translations = {
       },
       email: {
         title: "Email",
-        content: "info@bellavista.it"
+        content: "rrhh.terrazaitaliana@gmail.com"
       },
       hours: {
         title: "Horarios",
@@ -94,9 +94,9 @@ export const translations = {
   it: {
     nav: {
       menu: "Menu",
-      drinks: "Bevande",
       reservations: "Prenotazioni",
-      contact: "Contatti"
+      contact: "Contatti",
+      location: "Posizione"
     },
     hero: {
       title: "La Terrazza Italiana",
@@ -110,12 +110,7 @@ export const translations = {
       downloadText: "Scarica Menu PDF",
       comingSoon: "Presto disponibile per il download"
     },
-    drinks: {
-      title: "Carta delle Bevande",
-      subtitle: "Scarica la nostra carta completa di vini, caffè e cocktail artigianali",
-      downloadText: "Scarica Carta PDF",
-      comingSoon: "Presto disponibile per il download"
-    },
+
     reservations: {
       title: "Prenotazioni",
       subtitle: "Prenota il tuo tavolo per vivere un'esperienza gastronomica indimenticabile",
@@ -144,7 +139,7 @@ export const translations = {
       subtitle: "Trovaci e resta connesso con noi",
       address: {
         title: "Indirizzo",
-        content: "Via della Bellezza, 123\n00100 Roma, Italia"
+        content: "Avenida las Americas 8-42\nCiudad de Guatemala, Guatemala"
       },
       phone: {
         title: "Telefono",
@@ -152,7 +147,7 @@ export const translations = {
       },
       email: {
         title: "Email",
-        content: "info@bellavista.it"
+        content: "rrhh.terrazaitaliana@gmail.com"
       },
       hours: {
         title: "Orari",

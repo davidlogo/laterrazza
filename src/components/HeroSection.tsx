@@ -81,11 +81,7 @@ export const HeroSection = ({ translations }: HeroSectionProps) => {
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span>Ingredientes frescos importados de Italia</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span>Chef ejecutivo con 15 años de experiencia</span>
+                  <span>Ingredientes frescos</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
