@@ -28,13 +28,13 @@ export const LanguageSelector = ({ currentLanguage, onLanguageChange }: Language
         variant="ghost"
         size="sm"
         onClick={() => setIsOpen(!isOpen)}
-        className="gap-2 text-white hover:bg-white/10"
+        className="gap-2 text-white"
       >
         <Globe size={16} />
         <span className="hidden sm:inline">{current.flag} {current.name}</span>
         <span className="sm:hidden">{current.flag}</span>
       </Button>
-      
+
       {isOpen && (
         <div className="absolute top-full right-0 mt-2 glass-effect border border-white/20 rounded-lg shadow-lg z-50 min-w-32">
           {languages.map((lang) => (

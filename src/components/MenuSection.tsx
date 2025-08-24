@@ -3,7 +3,15 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Download, FileText } from 'lucide-react';
 
 interface MenuSectionProps {
-  translations: any;
+  translations: {
+    menu: {
+      title: string;
+      description: string;
+      fullMenuTitle: string;
+      fullMenuDescription: string;
+      downloadButton: string;
+    };
+  };
 }
 
 export const MenuSection = ({ translations }: MenuSectionProps) => {
@@ -24,7 +32,7 @@ export const MenuSection = ({ translations }: MenuSectionProps) => {
             {translations.menu.title}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Descubre nuestra auténtica cocina italiana con platos tradicionales preparados con ingredientes frescos
+            {translations.menu.description}
           </p>
         </div>
 
@@ -36,12 +44,11 @@ export const MenuSection = ({ translations }: MenuSectionProps) => {
               </div>
               
               <h3 className="text-2xl font-bold mb-6 text-primary font-playfair">
-                Carta Completa
+                {translations.menu.fullMenuTitle}
               </h3>
               
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                Nuestro menú incluye una selección cuidadosamente curada de entradas, pastas, 
-                platos principales, ensaladas y pizzas auténticas
+                {translations.menu.fullMenuDescription}
               </p>
 
               <Button 
@@ -50,7 +57,7 @@ export const MenuSection = ({ translations }: MenuSectionProps) => {
                 onClick={handleDownload}
               >
                 <Download className="w-5 h-5" />
-                Descargar Menú
+                {translations.menu.downloadButton}
               </Button>
             </div>
           </CardContent>

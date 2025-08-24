@@ -2,9 +2,9 @@
 // Necesitas crear una cuenta en https://www.emailjs.com/ y obtener estas credenciales
 
 export const emailjsConfig = {
-  serviceId: 'YOUR_SERVICE_ID', // Reemplazar con tu Service ID
-  templateId: 'YOUR_TEMPLATE_ID', // Reemplazar con tu Template ID
-  publicKey: 'YOUR_PUBLIC_KEY' // Reemplazar con tu Public Key
+  serviceId: 'service_omrwh21', // Reemplazar con tu Service ID
+  templateId: 'template_909f4wf', // Reemplazar con tu Template ID
+  publicKey: 'wguvjD6NKNFSmxvC3' // Reemplazar con tu Public Key
 };
 
 // Para configurar EmailJS:

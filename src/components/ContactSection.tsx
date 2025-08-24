@@ -2,7 +2,32 @@ import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, Phone, Mail, Clock, Instagram } from 'lucide-react';
 
 interface ContactSectionProps {
-  translations: any;
+  translations: {
+    contact: {
+      title: string;
+      subtitle: string;
+      address: {
+        title: string;
+        content: string;
+      };
+      phone: {
+        title: string;
+        content: string;
+      };
+      email: {
+        title: string;
+        content: string;
+      };
+      hours: {
+        title: string;
+        content: string;
+      };
+      social: {
+        title: string;
+      };
+      map: string;
+    };
+  };
 }
 
 export const ContactSection = ({ translations }: ContactSectionProps) => {
@@ -10,12 +35,12 @@ export const ContactSection = ({ translations }: ContactSectionProps) => {
     {
       icon: MapPin,
       title: translations.contact.address.title,
-      content: "Avenida las Americas 8-42\nCiudad de Guatemala, Guatemala"
+      content: translations.contact.address.content
     },
     {
       icon: Phone,
       title: translations.contact.phone.title,
-      content: "+502 2253 7922"
+      content: translations.contact.phone.content
     },
     {
       icon: Mail,
@@ -25,7 +50,7 @@ export const ContactSection = ({ translations }: ContactSectionProps) => {
     {
       icon: Clock,
       title: translations.contact.hours.title,
-      content: "Lun-Sáb: 12:00 - 22:00\nDomingo: 12:00 - 18:00"
+      content: translations.contact.hours.content
     }
   ];
 
@@ -87,14 +112,14 @@ export const ContactSection = ({ translations }: ContactSectionProps) => {
           <Card className="elegant-shadow border-0 overflow-hidden">
             <div className="h-80 bg-muted">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.5!2d-90.5133!3d14.6349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDM4JzA1LjYiTiA5MMKwMzAnNDcuOSJX!5e0!3m2!1ses!2sgt!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.1983093675276!2d-90.52060230000001!3d14.587773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a389d17f28ed%3A0xcbd89025b9728931!2sLa%20Terrazza%20Italiana!5e0!3m2!1ses-419!2sco!4v1756071144891!5m2!1ses-419!2sco"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Ubicación de La Terraza Italiana"
+                title={translations.contact.map}
               ></iframe>
             </div>
           </Card>
