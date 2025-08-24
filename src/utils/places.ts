@@ -1,6 +1,51 @@
-// Simple Google Places API utility with caching
+// Google Places API utility with caching using JavaScript SDK
 const GOOGLE_PLACES_API_KEY = 'AIzaSyCydIEfUdhfO_8g8FDcUkPacW92HnpSHmA';
 const CACHE_DURATION = 30 * 60 * 1000; // 30 minutes in milliseconds
+
+// Declare global google object
+declare global {
+  interface Window {
+    google: {
+      maps: {
+        places: {
+          PlacesService: new (element: HTMLElement) => GooglePlacesService;
+          PlacesServiceStatus: {
+            OK: string;
+          };
+        };
+      };
+    };
+    initGooglePlaces: () => void;
+  }
+}
+
+interface GooglePlace {
+  name: string;
+  rating?: number;
+  user_ratings_total?: number;
+  formatted_phone_number?: string;
+  formatted_address?: string;
+  website?: string;
+  opening_hours?: {
+    open_now?: boolean;
+  };
+  reviews?: Array<{
+    author_name: string;
+    rating: number;
+    text: string;
+    relative_time_description: string;
+  }>;
+}
+
+interface GooglePlacesService {
+  getDetails(
+    request: {
+      placeId: string;
+      fields: string[];
+    },
+    callback: (place: GooglePlace | null, status: string) => void
+  ): void;
+}
 
 interface PlaceDetailsResult {
   name: string;
@@ -62,7 +107,34 @@ function getFromCache(placeId: string): PlaceDetailsResult | null {
   }
 }
 
-export async function getPlaceDetails(placeId: string) {
+// Load Google Places API script
+function loadGooglePlacesScript(): Promise<void> {
+  return new Promise((resolve, reject) => {
+    if (window.google && window.google.maps && window.google.maps.places) {
+      resolve();
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_PLACES_API_KEY}&libraries=places`;
+    script.async = true;
+    script.defer = true;
+    
+    script.onload = () => {
+      if (window.google && window.google.maps && window.google.maps.places) {
+        resolve();
+      } else {
+        reject(new Error('Google Places API failed to load'));
+      }
+    };
+    
+    script.onerror = () => reject(new Error('Failed to load Google Places API script'));
+    
+    document.head.appendChild(script);
+  });
+}
+
+export async function getPlaceDetails(placeId: string): Promise<PlaceDetailsResult | null> {
   // Check cache first
   const cachedData = getFromCache(placeId);
   if (cachedData) {
@@ -70,22 +142,57 @@ export async function getPlaceDetails(placeId: string) {
     return cachedData;
   }
 
-  // If not in cache, fetch from API
-  const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,user_ratings_total,formatted_phone_number,formatted_address,opening_hours,website,photos,reviews&key=${GOOGLE_PLACES_API_KEY}`;
-
   try {
-    const response = await fetch(url);
-    const data = await response.json();
+    // Load Google Places API if not already loaded
+    await loadGooglePlacesScript();
 
-    if (data.status === 'OK') {
-      // Save to cache before returning
-      saveToCache(placeId, data.result);
-      console.log('Fetched fresh place data from API');
-      return data.result;
-    } else {
-      console.error('Places API error:', data.status);
-      return null;
-    }
+    return new Promise((resolve, reject) => {
+      const service = new window.google.maps.places.PlacesService(document.createElement('div'));
+      
+      const request = {
+        placeId: placeId,
+        fields: [
+          'name', 
+          'rating', 
+          'user_ratings_total', 
+          'formatted_phone_number', 
+          'formatted_address', 
+          'opening_hours', 
+          'website', 
+          'reviews'
+        ]
+      };
+
+      service.getDetails(request, (place: GooglePlace | null, status: string) => {
+        if (status === window.google.maps.places.PlacesServiceStatus.OK && place) {
+          const result: PlaceDetailsResult = {
+            name: place.name,
+            rating: place.rating,
+            user_ratings_total: place.user_ratings_total,
+            formatted_phone_number: place.formatted_phone_number,
+            formatted_address: place.formatted_address,
+            website: place.website,
+            opening_hours: place.opening_hours ? {
+              open_now: place.opening_hours.open_now
+            } : undefined,
+            reviews: place.reviews?.map((review) => ({
+              author_name: review.author_name,
+              rating: review.rating,
+              text: review.text,
+              relative_time_description: review.relative_time_description
+            }))
+          };
+
+          // Save to cache before returning
+          saveToCache(placeId, result);
+          console.log('Fetched fresh place data from Google Places API');
+          resolve(result);
+        } else {
+          console.error('Places API error:', status);
+          resolve(null);
+        }
+      });
+    });
   } catch (error) {
     console.error('Error fetching place details:', error);
     return null;
