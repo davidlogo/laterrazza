@@ -10,13 +10,26 @@ export const translations = {
       title: "La Terrazza Italiana",
       subtitle: "Sabores auténticos de Italia en un ambiente exclusivo y elegante",
       cta1: "Ver Menú",
-      cta2: "Hacer Reserva"
+      cta2: "Hacer Reserva",
+      reviews: "4.9 • 150+ reseñas",
+      location: "Ciudad de Guatemala",
+      hours: "Lun-Sáb: 12:00-22:00, Dom: 12:00-18:00",
+      premiumExperience: {
+        title: "Experiencia Premium",
+        freshIngredients: "Ingredientes frescos",
+        panoramicViews: "Terraza con vistas panorámicas",
+        romanticAmbiance: "Ambiente romántico y elegante"
+      }
     },
     menu: {
       title: "Nuestro Menú",
       subtitle: "Descarga nuestro menú completo en PDF que incluye todos nuestros deliciosos platos tradicionales italianos",
       downloadText: "Descargar Menú PDF",
-      comingSoon: "Próximamente disponible para descarga"
+      comingSoon: "Próximamente disponible para descarga",
+      description: "Descubre nuestra auténtica cocina italiana con platos tradicionales preparados con ingredientes frescos",
+      fullMenuTitle: "Carta Completa",
+      fullMenuDescription: "Nuestro menú incluye una selección cuidadosamente curada de entradas, pastas, platos principales, ensaladas y pizzas auténticas",
+      downloadButton: "Descargar Menú"
     },
 
     reservations: {
@@ -40,6 +53,20 @@ export const translations = {
       success: {
         title: "¡Reserva confirmada!",
         message: "Nos pondremos en contacto con usted para confirmar los detalles."
+      },
+      error: {
+        title: "Error al enviar",
+        message: "Hubo un problema al enviar la reserva. Por favor, inténtalo de nuevo."
+      },
+      sending: "Enviando...",
+      schedule: {
+        mondayToSaturday: "Lunes a Sábado: {hours}",
+        sunday: "Domingo: {hours}",
+        timeUpdated: "Horario actualizado",
+        timeUpdatedMessage: "El horario seleccionado no está disponible para esta fecha. Por favor, selecciona un nuevo horario.",
+        timeNotAvailable: "Horario no disponible",
+        weekdaysSchedule: "Los días de lunes a sábado nuestro horario es de {min} a {max}.",
+        sundaySchedule: "Los domingos nuestro horario es de {min} a {max}."
       }
     },
     contact: {
@@ -69,6 +96,10 @@ export const translations = {
     testimonials: {
       title: "Lo que dicen nuestros clientes",
       subtitle: "Experiencias auténticas de quienes nos visitan",
+      overallRating: {
+        excellent: "Excelente",
+        basedOn: "Basado en"
+      },
       reviews: [
         {
           name: "María González",
@@ -102,13 +133,26 @@ export const translations = {
       title: "La Terrazza Italiana",
       subtitle: "Sapori autentici d'Italia in un ambiente esclusivo ed elegante",
       cta1: "Vedi Menu",
-      cta2: "Prenota Tavolo"
+      cta2: "Prenota Tavolo",
+      reviews: "4.9 • 150+ recensioni",
+      location: "Città del Guatemala",
+      hours: "Mar-Sab: 12:00-22:00, Dom: 12:00-18:00",
+      premiumExperience: {
+        title: "Esperienza Premium",
+        freshIngredients: "Ingredienti freschi",
+        panoramicViews: "Terrazza con vista panoramica",
+        romanticAmbiance: "Ambiente romantico ed elegante"
+      }
     },
     menu: {
       title: "Il Nostro Menu",
       subtitle: "Scarica il nostro menu completo in PDF per vedere tutti i nostri deliziosi piatti",
       downloadText: "Scarica Menu PDF",
-      comingSoon: "Presto disponibile per il download"
+      comingSoon: "Presto disponibile per il download",
+      description: "Scopri la nostra autentica cucina italiana con piatti tradizionali preparati con ingredienti freschi",
+      fullMenuTitle: "Menu Completo",
+      fullMenuDescription: "Il nostro menu include una selezione accuratamente curata di antipasti, paste, piatti principali, insalate e pizze autentiche",
+      downloadButton: "Scarica Menu"
     },
 
     reservations: {
@@ -132,6 +176,20 @@ export const translations = {
       success: {
         title: "Prenotazione confermata!",
         message: "Ti contatteremo per confermare i dettagli."
+      },
+      error: {
+        title: "Errore nell'invio",
+        message: "Si è verificato un problema nell'invio della prenotazione. Riprova di nuovo."
+      },
+      sending: "Invio in corso...",
+      schedule: {
+        mondayToSaturday: "Lunedì a Sabato: {hours}",
+        sunday: "Domenica: {hours}",
+        timeUpdated: "Orario aggiornato",
+        timeUpdatedMessage: "L'orario selezionato non è disponibile per questa data. Seleziona un nuovo orario.",
+        timeNotAvailable: "Orario non disponibile",
+        weekdaysSchedule: "Dal lunedì al sabato il nostro orario è dalle {min} alle {max}.",
+        sundaySchedule: "La domenica il nostro orario è dalle {min} alle {max}."
       }
     },
     contact: {
@@ -161,6 +219,10 @@ export const translations = {
     testimonials: {
       title: "Cosa dicono i nostri clienti",
       subtitle: "Esperienze autentiche di chi ci visita",
+      overallRating: {
+        excellent: "Eccellente",
+        basedOn: "Basato su"
+      },
       reviews: [
         {
           name: "Giulia Romano",

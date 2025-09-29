@@ -2,14 +2,49 @@ import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, Phone } from 'lucide-react';
 import heroImage from '@/assets/restaurant-hero.jpg';
 
-interface HeroSectionProps {
-  translations: any;
+interface RestaurantInfo {
+  name?: string;
+  rating?: number;
+  phone?: string;
+  address?: string;
+  website?: string;
+  isOpen?: boolean;
+  reviews?: Array<{
+    author: string;
+    rating: number;
+    text: string;
+    time: string;
+  }>;
+  totalReviews?: number;
 }
 
-export const HeroSection = ({ translations }: HeroSectionProps) => {
+interface HeroSectionProps {
+  translations: {
+    hero: {
+      title: string;
+      subtitle: string;
+      cta1: string;
+      cta2: string;
+      reviews: string;
+      location: string;
+      hours: string;
+      premiumExperience: {
+        title: string;
+        freshIngredients: string;
+        panoramicViews: string;
+        romanticAmbiance: string;
+      };
+    };
+  };
+  restaurantInfo?: RestaurantInfo;
+}
+
+export const HeroSection = ({ translations, restaurantInfo }: HeroSectionProps) => {
   const handleReservation = () => {
     window.location.href = 'tel:+50222537922';
   };
+
+  console.log("hero section", restaurantInfo);
 
   return (
     <section 
@@ -28,13 +63,29 @@ export const HeroSection = ({ translations }: HeroSectionProps) => {
             <div className="mb-6">
               <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
                 <div className="flex text-primary">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-current" />
-                  ))}
+                  {[...Array(5)].map((_, i) => {
+                    // Use API rating if available, otherwise use mockup rating of 4.5
+                    const rating = restaurantInfo?.rating || 4.5;
+                    return (
+                      <Star 
+                        key={i} 
+                        className={`w-5 h-5 ${i < Math.floor(rating) ? 'fill-current' : 'fill-none'}`} 
+                      />
+                    );
+                  })}
                 </div>
-                <span className="text-white/80 text-sm">4.9 • 150+ reseñas</span>
+                <span className="text-white/80 text-sm">
+                  {restaurantInfo?.rating && restaurantInfo?.totalReviews ? (
+                    <>
+                      {restaurantInfo.rating.toFixed(1)} ({restaurantInfo.totalReviews.toLocaleString()} reviews)
+                    </>
+                  ) : (
+                    // Fallback mockup data when API fails
+                    "4.5 (1,247 reviews)"
+                  )}
+                </span>
               </div>
-              
+
               <h1 className="text-5xl lg:text-7xl font-bold mb-6 animate-in fade-in duration-1000 font-playfair">
                 {translations.hero.title}
               </h1>
@@ -65,7 +116,7 @@ export const HeroSection = ({ translations }: HeroSectionProps) => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start text-sm">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span>Ciudad de Guatemala</span>
+                <span>{restaurantInfo?.address || translations.hero.location}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-primary" />
@@ -77,19 +128,19 @@ export const HeroSection = ({ translations }: HeroSectionProps) => {
           {/* Feature Card */}
           <div className="hidden lg:block">
             <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 animate-in fade-in duration-1000 delay-700">
-              <h3 className="text-2xl font-bold mb-4 font-playfair">Experiencia Premium</h3>
+              <h3 className="text-2xl font-bold mb-4 font-playfair">{translations.hero.premiumExperience.title}</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span>Ingredientes frescos</span>
+                  <span>{translations.hero.premiumExperience.freshIngredients}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span>Terraza con vistas panorámicas</span>
+                  <span>{translations.hero.premiumExperience.panoramicViews}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span>Ambiente romántico y elegante</span>
+                  <span>{translations.hero.premiumExperience.romanticAmbiance}</span>
                 </div>
               </div>
             </div>
